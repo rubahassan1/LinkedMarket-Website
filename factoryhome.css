@@ -1,0 +1,610 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    width: 100%;
+}
+
+body {
+    background-size: cover;
+    background:fixed linear-gradient(#769ED9, #27477C);
+    font-family: Arial, sans-serif;
+    height: 100vh;
+}
+
+header{
+    position: relative;
+    padding: 0 2rem;
+}
+
+#nav{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+
+
+h1 {
+    font-size: 24px;
+    color: #ffffff;
+    margin: 0;
+}
+
+#rightNav {
+    position: absolute;
+    right: 30px;
+    display: flex;
+    align-items: center;
+}
+
+#nav img{
+    margin-right: -20px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    margin-right: 30px;
+    position: relative;
+}
+
+.notification i{
+    font-size: 16px;
+}
+
+.profile{
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.profile img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid;
+}
+
+.profile i{
+    font-size: 35px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+#nav a, .dropdown_menu a {
+    color: #ffffff;
+    text-decoration: none;
+    position: relative;
+    padding: 10px 20px 10px 20px;
+    font-size: 13px;
+}
+
+.links li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: transparent;
+    transition: width 0.4s;
+}
+
+.links li a:hover::after,
+.links .active a::after {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.action_btn{
+    background-color: #255BB3;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale 0.2 ease;
+}
+
+.action_btn:hover{
+    scale:1.05;
+    color: #ffffff;
+}
+
+.action_btn:active{
+    scale: 0.95;
+}
+
+#nav .toggle_btn{
+    display: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.dropdown_menu{
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 2;
+}
+
+.dropdown_menu .links a{
+    color: #27477C;
+}
+
+.dropdown_menu .links li a:hover::after,
+.dropdown_menu .links li.active a::after {
+    width: 100%;
+    background-color: #27477C;
+}
+
+.dropdown_menu.open{
+    height: unset;
+}
+
+.dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown_menu .action_btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.top{
+    align-items: center;
+    margin-top: 80px;
+}
+.search{
+    position: relative;
+    margin-left: 30px;
+    margin-right: 40px;
+    float: left;
+}
+
+.search i{
+    position: absolute;
+    top: 16%;
+    right: 15px; /* Adjust as needed */
+    color: #fff;
+}
+
+.search input{
+    height: 40px;
+    width: 550px;
+    background-color: rgba(11, 19, 44, 0.2);
+    border-radius: 10px;
+    padding-left: 15px;
+    border: solid 1.5px rgba(50, 56, 74, 0.4);
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.search input::placeholder{
+    color: #ffffff92;
+}
+
+.search input:focus{
+    outline: none;
+}
+
+#suggestions{
+    display: flex;
+    flex-direction: row;
+    z-index: 2;
+    position: absolute;
+    left: 5px;
+    top:50px;
+}
+#suggestions ul{
+    background-color: #fff;
+    padding:10px;
+    width: 540px;
+}
+#suggestions ul li a{
+    clear: both;
+    color:black;
+    width: 100%;
+}
+#suggestions ul li{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.calculator-btn{
+    margin-right: 90px;
+    float: left;
+}
+
+.calculator-btn button{
+    height: 40px;
+    width: 300px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #2f4b79;
+    color: #ffffff;
+}
+
+.cart-wishlist{
+    position: relative;
+    top: -15px; /* Adjust the value as needed */
+    margin-top: 10px;
+    display: block;
+    background-color: rgb(255, 255, 255, 0.2);
+    display: block;
+    width: 150px;
+    padding: 10px;
+    text-align: center;
+    height: 50px;
+    align-content: center;
+    border-radius: 20px;
+}
+
+.cart-wishlist i{
+    color: #fff;
+    font-size: 25px;
+}
+
+.schedule {
+    clear: both;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 550px;
+    margin-left: 30px;
+    margin-top: 60px;
+    float: left;
+    margin-right: 100px;
+}
+
+.schedule h1 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.schedule form {
+    margin-bottom: 10px;
+}
+
+.schedule input[type="text"],
+.schedule input[type="date"] {
+    width: calc(100% - 20px);
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.schedule a{
+    text-decoration: none;
+}
+
+.schedule button,
+.schedule a button {
+    display: block;
+    width: 100%;
+    background-color: #0056b3; /* Darker blue color */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.schedule button:hover,
+.schedule a button:hover {
+    background-color: #004080; /* Darker shade of blue on hover */
+}
+
+.factory-img{
+    margin-top: 70px;
+}
+
+.factory-img img{
+    width: 450px;
+}
+
+.article {
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background color */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.article h1 {
+    font-size: 32px;
+    color: #FFF; /* White text color */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.article p {
+    font-size: 18px;
+    color: #DDD; /* Light gray text color */
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.article p:last-child {
+    margin-bottom: 0;
+}
+
+.article ol {
+    list-style-type: none;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.article ol li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    color: #0c1253;;
+}
+
+.article ol li:before {
+    content: "\2022";
+    position: absolute;
+    left: 0;
+    color: #0c1253; /* Dark blue bullet color */
+    font-size: 24px;
+    top: 6px;
+}
+
+.currentorders {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.currentorders h1 {
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-right: none;
+    border-left: none;
+}
+
+.orders-table th,
+.orders-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    text-align: left;
+    border-left: none;
+    border-right: none;
+}
+
+.orders-table th {
+    background-color: #789bd3;
+    color: #1b2f4f;
+}
+
+.orders-table tr td{
+    background-color: transparent;
+    color: #fff;
+}
+
+.orders-table tr:hover {
+    background-color: #4a70ac;
+}
+
+.orders-table td:last-child {
+    text-align: center;
+}
+
+.orders-table button {
+    padding: 8px 15px;
+    background-color: #789bd3;
+    color: #1b2f4f;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.orders-table button:hover {
+    color: #ffffff;
+    background-color: #2c4369;
+}
+
+@media(max-width: 1250px){
+    .calculator-btn{
+        margin-right: 30px;
+    }
+}
+
+@media(max-width: 1190px){
+    .calculator-btn{
+        margin-right: 30px;
+        width: 350px;
+    }
+    .calculator-btn button{
+        width: 350px;
+    }
+    .cart-wishlist{
+        clear: both;
+        top: 0;
+        top: 15px;
+        margin-left: 300px;
+        align-self: center;
+        width: 400px;
+    }
+    .schedule{
+        margin-left: 130px;
+        width: 75%;
+    }
+    .factory-img{
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media(max-width: 1050px){
+
+    *{
+        justify-content: center;
+    }
+
+    .search,
+    .calculator-btn,
+    .cart-wishlist {
+        margin-right: 0;
+        margin-left: 0;
+        width: calc(100% - 40px);
+    }
+
+    .calculator-btn {
+        margin-bottom: 20px;
+        margin-left: 30px;
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .search{
+        text-align: center;
+        width: 100%;
+    }
+
+    .search i{
+        right: 8%;
+    }
+
+    .search input{
+        width: 85%;
+    }
+
+    #suggestions{
+        width: 85%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #suggestions ul{
+        width: 100%;
+    }
+
+    .search a{
+        text-align: center;
+    }
+
+    .schedule{
+        margin-left: 60px;
+        width: 75%;
+    }
+    .factory-img{
+        width: 100%;
+        text-align: center;
+    }
+    .currentorders{
+        padding: 10px;
+    }
+}
+
+@media (max-width: 992px) {
+    #nav .links,
+    #nav .action_btn{
+        display: none;
+    }
+    
+    #nav .toggle_btn{
+        display: block;
+    }
+
+    .dropdown_menu{
+        display: block;
+    }
+
+    .profile {
+        display: none;
+    }
+}
+
+
+@media(max-width: 576px){
+    *{
+        justify-content: center;
+        
+    }
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+
+    .calculator-btn{
+        text-align: center;
+    }
+    .currentorders{
+        font-size: 10px;
+    }
+    .schedule{
+        margin-left: 30px;
+    }
+
+    .cart-wishlist{
+        margin-left: 10px;
+    }
+
+    .factory-img img{
+        width: 300px;
+    }
+
+}
+
+@media(max-width: 400px){
+    .cart-wishlist {
+        margin-bottom: 20px;
+    }
+    .calculator-btn button{
+        width: 200px;
+    }
+    .factory-img img{
+        width: 200px;
+    }
+}
+
+

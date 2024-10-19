@@ -1,0 +1,105 @@
+<?php
+    session_start();
+    include "config.php";
+    $userid;
+    if(isset($_SESSION['id'])){
+        $userid=$_SESSION['id'];
+    }
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search for People</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="searchPeople.css">
+</head>
+<body>
+<div id="nav">
+        <div id="logo">
+        <img src="images/logo.png" alt="" id='logo'>
+        <h1>Linked<span style="color:#255BB3;">Market</span></h1>
+        </div>
+        <div id="rightNav">
+            <ul class="links">
+                <li><a href="buyerhome.php">Home</a></li>
+                <li><a href="requestproduct.php">Request a Product</a></li>
+                <li><a href="about.php">About</a></li>
+                <li><a href="mailto:linked_market@gmail.com">Contact</a></li>
+                <li><a href="logout.php">Logout</a></li>
+            </ul>
+            <a href="notifications.php" class="notification"><?php
+            $readNot=mysqli_query($con, "SELECT * from notification where `Read`='0' AND ReceiverID='$userid'");
+            $readReq=mysqli_query($con, "SELECT * from connectionrequests where `read`='0' AND connectionID='$userid'");
+            if(mysqli_num_rows($readNot)==0 && mysqli_num_rows($readReq)==0){
+                echo "<i class='fa-regular fa-bell'></i>";
+            }
+            else{
+                echo "<i class='fa-regular fa-bell fa-bounce'></i>";
+            }
+            ?></a>
+            <a href="factoryprofile.php" class="profile"><?php 
+                if(isset($_SESSION['id'])){
+                    $dbs=mysqli_query($con,"SELECT Image from user where ID='$userid'");
+                    $img=mysqli_fetch_assoc($dbs)['Image'];
+                    if($img==NULL){
+                        echo '<i class="fa-regular fa-circle-user" style=\'font-size:30px;\'></i>';
+                    }
+                    else{
+                        echo '<img src="'.$img.'" alt="">';
+                    }
+                }
+            ?></a>
+            <div class="toggle_btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </div>
+    <div class="dropdown_menu">
+        <div class="links">
+            <li><a href="buyerhome.php">Home</a></li>
+            <li><a href="buyerprofile.php">Profile</a></li>
+            <li><a href="requestProduct.php">Request a Product</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="mailto:linked_market@gmail.com">Contact</a></li>
+            <li><a href="logout.php">Logout</a></li>
+        </div>
+    </div>
+    <div class="searchbar">
+        <h2>Find People</h2>
+        <div class="search">
+        <input type="text" placeholder="Search..." oninput="showHint(this.value)">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+    </div>
+    <div id="suggestions" style="color:black;"></div>
+<script>
+        const toggleBtn = document.querySelector('.toggle_btn')
+        const toggleBtnIcon = document.querySelector('.toggle_btn i')
+        const dropDownMenu = document.querySelector('.dropdown_menu')
+
+        toggleBtn.onclick = function (){
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
+            toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+        }
+
+        function showHint(str) {
+            if (str.length === 0) {
+                document.getElementById("suggestions").innerHTML = "";
+                return;
+            } else {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function () {
+                    if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+                        document.getElementById("suggestions").innerHTML = xmlhttp.responseText;
+                    }
+                };
+                xmlhttp.open("GET", "search1.php?q=" + str, true);
+                xmlhttp.send();
+            }
+        }
+    </script>
+</body>
+</html>

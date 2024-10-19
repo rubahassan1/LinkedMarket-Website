@@ -1,0 +1,296 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    width: 100%;
+}
+
+body {
+    background-size: cover;
+    background:fixed linear-gradient(#769ED9, #27477C);
+    font-family: Arial, sans-serif;
+    height: 100vh;
+}
+
+header{
+    position: relative;
+    padding: 0 2rem;
+}
+
+#nav{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+
+
+h1 {
+    font-size: 24px;
+    color: #ffffff;
+    margin: 0;
+}
+
+#rightNav {
+    position: absolute;
+    right: 30px;
+    display: flex;
+    align-items: center;
+}
+
+#nav img{
+    margin-right: -20px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    margin-right: 30px;
+    position: relative;
+}
+
+.notification i{
+    font-size: 16px;
+}
+
+.profile{
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.profile img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid;
+}
+
+.profile i{
+    font-size: 35px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+#nav a, .dropdown_menu a {
+    color: #ffffff;
+    text-decoration: none;
+    position: relative;
+    padding: 10px 20px 10px 20px;
+    font-size: 13px;
+}
+
+.links li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: transparent;
+    transition: width 0.4s;
+}
+
+.links li a:hover::after,
+.links .active a::after {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.action_btn{
+    background-color: #255BB3;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale 0.2 ease;
+}
+
+.action_btn:hover{
+    scale:1.05;
+    color: #ffffff;
+}
+
+.action_btn:active{
+    scale: 0.95;
+}
+
+#nav .toggle_btn{
+    display: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.dropdown_menu{
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 2;
+}
+
+.dropdown_menu .links a{
+    color: #27477C;
+}
+
+.dropdown_menu .links li a:hover::after,
+.dropdown_menu .links li.active a::after {
+    width: 100%;
+    background-color: #27477C;
+}
+
+.dropdown_menu.open{
+    height: unset;
+}
+
+.dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown_menu .action_btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+#costsFieldset{
+    font-size: 10pt;
+    padding: 20px;
+    border-color: #ffffff;
+}
+
+#costContainer div{
+    margin-top: 10px;
+}
+
+#costContainer div input{
+    border-radius: 20rem;
+    height: 10px;
+    padding: 10px;
+    background-color: #6585b4;
+    margin-right: 10px;
+    color: #ffffff;
+}
+
+#costContainer div button{
+    padding: 3px;
+    color: #27477C;
+    cursor: pointer;
+    border-color: #4575c3;
+    border-width: 3px;
+
+}
+
+.costbtn{
+    margin-top: 10px;
+    width: 150px;
+    background-color: #4575c3;
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.calculator{
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    /*background-color: #27477C;*/
+    background-color: rgba(51, 90, 152, 0.5);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    padding: 40px;
+    border-radius: 20px;
+    margin-top: 100px;
+}
+
+form input{
+    border-radius: 10px;
+    background-color: #7c97be;
+    color: #ffffff;
+    height: 18px;
+    padding: 5px;
+    width: 65%;
+}
+
+td{
+    padding: 10px;
+}
+
+#calculate{
+    padding: 5px;
+    background-color: #2b5fab;
+    color: #ffffff;
+    border-radius: 10px;
+    width: 100px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+#calculate:hover, .costbtn:hover{
+    background-color: #27477C;
+}
+
+@media(max-width: 992px){
+    #nav .links,
+    #nav .action_btn{
+        display: none;
+    }
+    
+    #nav .toggle_btn{
+        display: block;
+    }
+
+    .dropdown_menu{
+        display: block;
+    }
+
+    .profile {
+        display: none;
+    }
+
+}
+
+@media(max-width: 576px){
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+
+    form button{
+        margin-top: 10px;
+    }
+}

@@ -1,0 +1,456 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    width: 100%;
+}
+
+body {
+    background-size: cover;
+    background:fixed linear-gradient(#769ED9, #27477C);
+    font-family: Arial, sans-serif;
+    height: 100vh;
+}
+
+header{
+    position: relative;
+    padding: 0 2rem;
+}
+
+#nav{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+
+
+h1 {
+    font-size: 24px;
+    color: #ffffff;
+    margin: 0;
+}
+
+#rightNav {
+    position: absolute;
+    right: 30px;
+    display: flex;
+    align-items: center;
+}
+
+#nav img{
+    margin-right: -20px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    margin-right: 30px;
+    position: relative;
+}
+
+#nav a, .dropdown_menu a {
+    color: #ffffff;
+    text-decoration: none;
+    position: relative;
+    padding: 10px 20px 10px 20px;
+    font-size: 13px;
+}
+
+.links li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: transparent;
+    transition: width 0.4s;
+}
+
+.links li a:hover::after,
+.links .active a::after {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.action_btn{
+    background-color: #255BB3;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale 0.2 ease;
+}
+
+.action_btn:hover{
+    scale:1.05;
+    color: #ffffff;
+}
+
+.action_btn:active{
+    scale: 0.95;
+}
+
+#nav .toggle_btn{
+    display: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.dropdown_menu{
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 2;
+}
+
+.dropdown_menu .links a{
+    color: #27477C;
+}
+
+.dropdown_menu .links li a:hover::after,
+.dropdown_menu .links li.active a::after {
+    width: 100%;
+    background-color: #27477C;
+}
+
+.dropdown_menu.open{
+    height: 300px;
+}
+
+.dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown_menu .action_btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background-color: #255BB3;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease-in-out; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #1A447B;
+    transform: translateY(-2px);
+}
+
+#head{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#head img{
+    width: 500px;
+    height: 550px;
+}
+#title {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0 15px 0;
+    width: 450px;
+    color: #ffffff;
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-top: 100px;
+}
+
+#title #first {
+    display: flex;
+    padding: 10px;
+    width: 500px;
+    font-size: 3vw;
+    font-family: 'Pacifico', cursive;
+    background-image: linear-gradient(45deg, #D4E3F9, #90AEDA);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    margin-bottom: 5vw;
+}
+
+#title #second {
+    font-size: 20px;
+    font-family:monospace;
+    color:#d7deea;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#features {
+    margin-left: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    color: #27477C;
+    justify-content: center;
+}
+
+#features h1{
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+#features div {
+    background-color: rgba(212, 227, 249, 0.5);
+    width: 300px; /* Adjust width for better layout */
+    margin-right: 20px; /* Adjust spacing between feature boxes */
+    margin-bottom: 20px; /* Adjust spacing between rows */
+    padding: 20px;
+    border-radius: 5px;
+    box-sizing: border-box; 
+}
+
+#features div h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#features div p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+
+#article { 
+    display: flex;
+    flex-direction: column; 
+    background-color: #27487c83;
+    margin: 20px auto;
+    color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 100px;
+    position: relative;
+    width: 75%;
+}
+
+#article h1 {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#article #firstcontent,#secondcontent {
+    display: flex; /* Create a flex container for image and content */
+    margin-bottom: 10px;
+}
+
+#article #firsttext {
+    margin-right: 20px; /* Margin between image and content */
+    display: block;
+    flex: 1; /* Take up remaining space */
+    padding: 20px;
+}
+
+#article p {
+    line-height: 30px;
+}
+
+#article #firstimg {
+    height: 400px;
+    width: 400px; /* Adjust image width */
+    border-radius: 5px; /* Margin between image and content */
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#article #secondimg {
+    height: 400px;
+    width: 400px;
+    border-radius: 5px;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#article #secondtext {
+    margin-left: 20px; /* Margin between image and content */
+    display: block;
+    flex: 1; /* Take up remaining space */
+    padding: 20px;
+}
+
+#signup-container{
+    text-align: center; /* Center the content horizontally */
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+#signup-container button{
+    margin-top: 10px;
+    height: 60px;
+    width: 200px;
+    font-size: 20px;
+}
+
+#footer{
+    display: flex; /* Use flexbox */
+    justify-content: space-between; /* Arrange items with space between */
+    align-items: center; /* Align items vertically in the center */
+    color: #ffffff;
+    background-color: #90aedaa1;
+    height: 40px;
+    padding: 10px;
+}
+
+#phone{
+    float: left;
+    width:150px;
+}
+
+#socialmedia{
+    float: left;
+    position: absolute;
+    width: 200px;
+    right: 20px;
+}
+
+#socialmedia a img{
+    width: 40px;
+    margin-left: 20px;
+}
+
+@media(max-width: 992px){
+    #nav .links,
+    #nav .action_btn{
+        display: none;
+    }
+    
+    #nav .toggle_btn{
+        display: block;
+    }
+
+    .dropdown_menu{
+        display: block;
+    }
+
+    #title #first {
+        font-size: 5vw; /* Adjusted font size for smaller screens */
+        margin-bottom: 20px; /* Adjusted margin for smaller screens */
+        width: fit-content;
+
+    }
+
+    #article #firstcontent, #article #secondcontent{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    } 
+    #article p{
+        width: 100%;
+    }
+    
+    #firstimg{
+        display: none;
+    }
+
+    #article{
+        width: fit-content;
+    }
+}
+
+@media(max-width: 950px){
+    #head{
+        flex-direction: column;
+    }
+}
+
+@media(max-width: 576px){
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+
+    #title{
+        width: 100%;
+
+    }
+    #title #first {
+        font-size: 6vw; /* Further adjusted font size for smaller screens */
+        margin-bottom: 10px; /* Further adjusted margin for smaller screens */
+    }
+
+    #title #second{
+        display: none;
+    }
+
+    #head img{
+        width: 300px;
+        height: 300px;
+    }
+
+    #features{
+        margin-left: 10px;
+    }
+    
+    #features div p{
+        font-size: 15px;
+    }
+
+    #article{
+        padding: 10px;
+        width: 85%;
+        margin: 20px auto;
+    }
+
+    #article #firsttext{
+        margin-right: 0;
+    }
+    #article #secondtext{
+        margin-left: 0;
+    }
+
+    #article p{
+        font-size: 13px;
+    }
+    
+    #article #secondimg{
+        width: 100%;
+        height: auto;
+        margin-top: 15px;
+    }
+}
+
+

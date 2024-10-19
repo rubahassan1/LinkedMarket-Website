@@ -1,0 +1,372 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    width: 100%;
+}
+
+body {
+    background-size: cover;
+    background:fixed linear-gradient(#769ED9, #27477C);
+    font-family: Arial, sans-serif;
+    height: 100vh;
+}
+
+header{
+    position: relative;
+    padding: 0 2rem;
+}
+
+#nav{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+
+
+h1 {
+    font-size: 24px;
+    color: #ffffff;
+    margin: 0;
+}
+
+#rightNav {
+    position: absolute;
+    right: 30px;
+    display: flex;
+    align-items: center;
+}
+
+#nav img{
+    margin-right: -20px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    margin-right: 30px;
+    position: relative;
+}
+
+.notification i{
+    font-size: 16px;
+}
+
+.profile{
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.profile img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid;
+}
+
+.profile i{
+    font-size: 35px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+#nav a, .dropdown_menu a {
+    color: #ffffff;
+    text-decoration: none;
+    position: relative;
+    padding: 10px 20px 10px 20px;
+    font-size: 13px;
+}
+
+.links li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: transparent;
+    transition: width 0.4s;
+}
+
+.links li a:hover::after,
+.links .active a::after {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.action_btn{
+    background-color: #255BB3;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale 0.2 ease;
+}
+
+.action_btn:hover{
+    scale:1.05;
+    color: #ffffff;
+}
+
+.action_btn:active{
+    scale: 0.95;
+}
+
+#nav .toggle_btn{
+    display: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.dropdown_menu{
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 2;
+}
+
+.dropdown_menu .links a{
+    color: #27477C;
+}
+
+.dropdown_menu .links li a:hover::after,
+.dropdown_menu .links li.active a::after {
+    width: 100%;
+    background-color: #27477C;
+}
+
+.dropdown_menu.open{
+    height: unset;
+}
+
+.dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown_menu .action_btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-card {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 30px auto;
+    width: 70%;
+}
+
+.profile-card .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 50px;
+    padding: 10px;
+}
+
+.profile-card .profileImage {
+    width: 90px;
+    height: 90px;
+    overflow: hidden;
+    margin-left: 15px;
+}
+
+.profile-card .profileImage img {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid;
+}
+
+.profileImage i{
+    font-size: 80px;
+    margin-top: 10px;
+}
+
+.profile-card .postsNumber,
+.profile-card .connectionsNumber,
+.profile-card .salesNumber {
+    text-align: center;
+}
+
+.profile-card .info {
+    margin-top: 20px;
+}
+
+.profile-card .bio textarea {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-height: 50px; /* Set the minimum height */
+    resize: vertical; /* Allow vertical resizing */
+    overflow-y: hidden; /* Hide vertical scrollbar */
+}
+
+.profile-card .profileBtns {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.profile-card .profileBtns button{
+    padding: 5px;
+    background-color: #255BB3;
+    color: #fff;
+    width: 200px;
+    cursor: pointer;
+}
+
+.posts{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px auto;
+    justify-content: center;
+}
+/* Product Card Styling */
+.product-card {
+    position: relative;
+    width: fit-content;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    margin: 10px; 
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+
+.product-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+    cursor: pointer;
+    width: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.product-image {
+    width: 240px;
+    height: 230px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+}
+
+.product-price {
+    color: #000000;
+}
+
+.product-stock{
+    text-align: center;
+}
+
+@media(max-width: 992px){
+    #nav .links,
+    #nav .action_btn{
+        display: none;
+    }
+    
+    #nav .toggle_btn{
+        display: block;
+    }
+
+    .dropdown_menu{
+        display: block;
+    }
+
+    .profile {
+        display: none;
+    }
+    .profile-card {
+        padding: 15px;
+    }
+
+    .profile-card .profileBtns button{
+        margin-bottom: 10px;
+    }
+
+}
+
+@media(max-width: 576px){
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+    .profile-card {
+        margin: 20px auto;
+        padding: 5px;
+        width: 80%;
+    }
+
+    .profile-card .postsNumber, .profile-card .connectionsNumber,
+    .profile-card .salesNumber {
+        font-size: 10px;
+    }
+
+    .profile-card .profileImage {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .profile-card .profileImage img {
+        width: 90%;
+        height: 90%;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 1px solid;
+    }
+
+    .profileImage i{
+        font-size: 40px;
+        margin-top: 15px;
+    }
+
+
+    .profile-card .header{
+        margin-right: 2px;
+    }
+
+    .profile-card .header, .profile-card .info, .profile-card .bio{
+        font-size: 13px;
+    }
+}
+
+

@@ -1,0 +1,375 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    width: 100%;
+}
+
+body {
+    background-size: cover;
+    background:fixed linear-gradient(#769ED9, #27477C);
+    font-family: Arial, sans-serif;
+    height: 100vh;
+}
+
+header{
+    position: relative;
+    padding: 0 2rem;
+}
+
+#nav{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+
+
+h1 {
+    font-size: 24px;
+    color: #ffffff;
+    margin: 0;
+}
+
+#rightNav {
+    position: absolute;
+    right: 30px;
+    display: flex;
+    align-items: center;
+}
+
+#nav img{
+    margin-right: -20px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline-block;
+    margin-right: 30px;
+    position: relative;
+}
+
+.notification i{
+    font-size: 16px;
+}
+
+.profile{
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.profile img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid;
+}
+
+.profile i{
+    font-size: 35px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+#nav a, .dropdown_menu a {
+    color: #ffffff;
+    text-decoration: none;
+    position: relative;
+    padding: 10px 20px 10px 20px;
+    font-size: 13px;
+}
+
+.links li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: transparent;
+    transition: width 0.4s;
+}
+
+.links li a:hover::after,
+.links .active a::after {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.action_btn{
+    background-color: #255BB3;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: scale 0.2 ease;
+}
+
+.action_btn:hover{
+    scale:1.05;
+    color: #ffffff;
+}
+
+.action_btn:active{
+    scale: 0.95;
+}
+
+#nav .toggle_btn{
+    display: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.dropdown_menu{
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 2;
+}
+
+.dropdown_menu .links a{
+    color: #fff;
+}
+
+.dropdown_menu .links li a:hover::after,
+.dropdown_menu .links li.active a::after {
+    width: 100%;
+    background-color: #fff;
+}
+
+.dropdown_menu.open{
+    height: unset;
+}
+
+.dropdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown_menu .action_btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    height: 100vh;
+    background-color: #3f639e;
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 50px;
+    border-radius: 20px;
+    height: auto;
+    min-height: 100vh;
+}
+
+.tabs{
+    display: flex;
+    justify-content: center;
+}
+
+.tabs a{
+    width: 50%;
+    text-align: center;
+    padding: 15px;    
+}
+
+.tabs .active{
+    background-color: #3b5d93;
+    border-radius: 20px; /* Apply border-radius to the active tab */
+    border-bottom-left-radius: 0; /* Set border radius for specific corners */
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.tabs .not-active:hover{
+    background-color: #3b5d93;
+    border-radius: 20px;
+    border-bottom-left-radius: 0; /* Set border radius for specific corners */
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.tabs a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.button-container{
+    display: flex;
+    justify-content: flex-end; 
+    padding: 15px;
+}
+
+.read{
+    color: #3f639e;
+    padding: 10px 20px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.requests{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.requesterIMG{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid #1e3861;;
+}
+
+.connection{
+    padding: 20px;
+    background-color: #769ED9;
+    width: 85%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #1e3861;
+}
+
+.info{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 85%;
+}
+.subinfo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 70%;
+}
+
+.subinfo > * {
+    margin-right: 10%; 
+}
+
+.subinfo > *:last-child {
+    margin-right: 0; 
+}
+
+.subinfo > *:first-child {
+    margin-right: 0; 
+}
+
+#connimage{
+    font-size: 45px;
+}
+
+.connection #view{
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.accept{
+    color: rgb(128, 231, 128);
+    font-size: 30px;
+    margin-right: 5%;
+}
+
+.ignore{
+    color: red;
+    font-size: 25px;
+}
+
+@media(max-width: 1050px){
+    #nav .links,
+    #nav .action_btn{
+        display: none;
+    }
+    
+    #nav .toggle_btn{
+        display: block;
+    }
+
+    .dropdown_menu{
+        display: block;
+    }
+
+    .profile {
+        display: none;
+    }
+
+    .connection{
+        font-size: 15px;
+    }
+
+}
+
+@media(max-width: 576px){
+    .dropdown_menu{
+        left: 2rem;
+        width: unset;
+    }
+    .connection{
+        font-size: 8px;
+        width: 85%;
+        padding: 8px;
+        justify-content: space-between;
+    }
+
+    .subinfo{
+        width: 80%;
+    }
+
+
+    .accept, .ignore{
+        font-size: 10px;
+    }
+
+    .tabs{
+        font-size: 13px;
+    }
+    
+    #connimage{
+        font-size: 15px;
+    }
+
+    .requesterIMG{
+        height: 20px;
+        width: 20px;
+    }
+
+}
+
